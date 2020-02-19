@@ -15,6 +15,6 @@ interface Services {
     suspend fun getlistPopularTeamsAsync(
 //        @Query("api_key") apiKey: String,
 //        @Query("region") region: String
-    ): Response<TeamResponse>
+    ): Response<TeamsResponse>
 
 }
