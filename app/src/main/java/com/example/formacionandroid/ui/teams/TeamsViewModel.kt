@@ -14,7 +14,7 @@ class TeamsViewModel(
     private val getTeams: GetTeam
 ) : ViewModel() {
 
-    sealed class  ViewState{
+    sealed class ViewState {
         object Loading : ViewState()
         class ShowList(val teams: List<Team>): ViewState()
         class Error(val error: String): ViewState()
