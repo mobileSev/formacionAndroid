@@ -26,6 +26,17 @@ android {
 }
 
 dependencies {
+    implementation project(":common")
+    implementation project(":domain")
+    implementation libs.koin
+    implementation libs.koinViewModel
+    implementation libs.koinScope
+    implementation libs.retrofit
+    implementation libs.retrofitKotlinCoroutinesAdapter
+    implementation libs.interceptor
+    implementation libs.gson
+
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
