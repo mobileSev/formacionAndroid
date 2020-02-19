@@ -17,7 +17,7 @@ class DetailViewModel(
 
     sealed class  ViewState{
         object Loading : ViewState()
-        class ShowList(val categorys: List<Team>): ViewState()
+        class ShowList(val teams: List<Team>): ViewState()
         class Error(val error: String): ViewState()
     }
 
