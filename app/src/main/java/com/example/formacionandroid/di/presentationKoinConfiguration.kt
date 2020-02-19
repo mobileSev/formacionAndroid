@@ -1,14 +1,14 @@
 package com.example.formacionandroid.di
 
-import com.example.formacionandroid.ui.MainViewModel
-import org.koin.androidx.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import com.example.formacionandroid.ui.detail.DetailViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 class PresentationKoinConfiguration {
 
     fun getModule() =  module{
 
-        viewModel { MainViewModel(get()) }
+       // viewModel { DetailViewModel(get()) }
     }
 
 }

@@ -1,13 +1,18 @@
 package com.example.formacionandroid
 
 import android.app.Application
+import com.example.data.di.DataKoinConfiguration
+import com.example.domain.di.DomainKoinConfiguration
+import com.example.formacionandroid.di.PresentationKoinConfiguration
 
-class TeamsApplication: Application() {
+import org.koin.core.context.startKoin
+
+class TeamsApplication :  Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        /*startKoin {
+        startKoin {
             modules(
                 listOf(
                     DataKoinConfiguration().getModule(),
@@ -15,6 +20,6 @@ class TeamsApplication: Application() {
                     PresentationKoinConfiguration().getModule()
                 )
             )
-        }*/
+        }
     }
 }
