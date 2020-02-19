@@ -1,7 +1,8 @@
-package com.example.formacionandroid
+package com.example.formacionandroid.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.formacionandroid.R
 
 class MainActivity : AppCompatActivity() {
 
