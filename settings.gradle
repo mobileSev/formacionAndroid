@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':Common', ':Domain', ':data'
 rootProject.name='FormacionAndroid'
