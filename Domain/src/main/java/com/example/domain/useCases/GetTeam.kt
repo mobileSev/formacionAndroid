@@ -6,6 +6,6 @@ import com.example.domain.TeamError
 import com.example.domain.TeamRepository
 
 class GetTeam(private val repository: TeamRepository) {
-    suspend fun invoke(error: Boolean): Either<TeamError, List<Team>> = repository.getMovie(error)
+    suspend fun invoke(): Either<TeamError, List<Team>> = repository.getTeam()
 
 }

@@ -1,4 +1,3 @@
 package com.example.domain
 
-class TeamError(val error: String) {
-}
+class TeamError(val error: String)
