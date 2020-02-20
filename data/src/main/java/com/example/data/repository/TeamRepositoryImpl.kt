@@ -19,8 +19,11 @@ class TeamRepositoryImpl(private val androidApplication: Application) : TeamRepo
 
 
         val response = if (teams.isSuccessful) {
-            Log.d(TAG, "TeamRepositoryImpl.getTeam.isSuccessful")
-            Response.Suscces(teams.body()?.teams as List<Team>)
+            Log.d(
+                TAG,
+                "TeamRepositoryImpl.getTeam.isSuccessful response: ${teams.body()?.teams?.get(0)}"
+            )
+            Response.Suscces(teams.body()?.teams /*as List<Team>?*/)
         } else {
             Log.d(TAG, "TeamRepositoryImpl.getTeam.ERROR")
 
