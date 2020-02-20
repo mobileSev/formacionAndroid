@@ -9,6 +9,6 @@ class TeamsResponse(
     val results: Int,
     val filters: List<String>,
 
-    val teams: List<Team>
+    val teams: List<Team>?
 
 )

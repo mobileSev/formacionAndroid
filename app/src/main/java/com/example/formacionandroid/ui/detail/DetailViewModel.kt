@@ -3,11 +3,11 @@ package com.example.formacionandroid.ui.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.domain.Team
 import com.example.domain.TeamError
 import com.example.domain.useCases.DoLogin
 import com.example.domain.useCases.GetTeam
-import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class DetailViewModel(
@@ -15,16 +15,16 @@ class DetailViewModel(
     private val doLogin: DoLogin
 ) : ViewModel() {
 
-    sealed class  ViewState{
+    sealed class ViewState {
         object Loading : ViewState()
-        class ShowList(val teams: List<Team>): ViewState()
-        class Error(val error: String): ViewState()
+        class ShowList(val teams: List<Team>?) : ViewState()
+        class Error(val error: String) : ViewState()
     }
 
 
-    private  val _state = MutableLiveData<ViewState>()
+    private val _state = MutableLiveData<ViewState>()
 
-    val state : LiveData<ViewState>
+    val state: LiveData<ViewState>
         get() {
             return _state
         }
@@ -56,7 +56,7 @@ class DetailViewModel(
             )
     }
 
-    private fun handleSuscces(list: List<Team>) {
+    private fun handleSuscces(list: List<Team>?) {
         _state.value =
             ViewState.ShowList(
                 list

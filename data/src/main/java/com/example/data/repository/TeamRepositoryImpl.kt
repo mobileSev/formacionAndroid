@@ -11,7 +11,7 @@ import com.example.domain.TeamError
 import com.example.domain.TeamRepository
 
 class TeamRepositoryImpl(private val androidApplication: Application) : TeamRepository {
-    override suspend fun getTeam(): Either<TeamError, List<Team>> {
+    override suspend fun getTeam(): Either<TeamError, List<Team>?> {
         Log.d(TAG, "TeamRepositoryImpl.getTeam")
 
         val teams =
@@ -30,7 +30,7 @@ class TeamRepositoryImpl(private val androidApplication: Application) : TeamRepo
             Response.Error("ERROR MESSAGE TEAM")
         }
         return when (response) {
-            is Response.Suscces -> Either.Right(teams.body()?.teams as List<Team>)
+            is Response.Suscces -> Either.Right(teams.body()?.teams /*as List<Team>*/)
             is Response.Error -> Either.Left(TeamError("ERROR DE EQUIPOS"))
         }
     }
