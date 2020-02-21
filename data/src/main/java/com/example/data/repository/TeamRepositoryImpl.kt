@@ -5,10 +5,9 @@ import android.util.Log
 import com.example.common.Either
 import com.example.common.TAG
 import com.example.data.Response
-
-import com.example.domain.Team
 import com.example.domain.TeamError
 import com.example.domain.TeamRepository
+import com.example.domain.model.Team
 
 class TeamRepositoryImpl(private val androidApplication: Application) : TeamRepository {
     override suspend fun getTeam(): Either<TeamError, List<Team>?> {
@@ -21,16 +20,16 @@ class TeamRepositoryImpl(private val androidApplication: Application) : TeamRepo
         val response = if (teams.isSuccessful) {
             Log.d(
                 TAG,
-                "TeamRepositoryImpl.getTeam.isSuccessful response: ${teams.body()?.teams?.get(0)}"
+                "TeamRepositoryImpl.getTeam.isSuccessful response has [${teams.body()?.api?.teams?.size}] teams"
             )
-            Response.Suscces(teams.body()?.teams /*as List<Team>?*/)
+            Response.Suscces(teams.body()?.api?.teams /*as List<Team>?*/)
         } else {
             Log.d(TAG, "TeamRepositoryImpl.getTeam.ERROR")
 
             Response.Error("ERROR MESSAGE TEAM")
         }
         return when (response) {
-            is Response.Suscces -> Either.Right(teams.body()?.teams /*as List<Team>*/)
+            is Response.Suscces -> Either.Right(teams.body()?.api?.teams /*as List<Team>*/)
             is Response.Error -> Either.Left(TeamError("ERROR DE EQUIPOS"))
         }
     }

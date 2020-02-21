@@ -1,6 +1,6 @@
-package com.example.domain
+package com.example.domain.model
 
-class Team(
+data class Team(
 
     val city: String,
     val fullName: String,
@@ -10,5 +10,5 @@ class Team(
     val shortName: String,
     val allStar: Int,
     val nbaFranchise: Int,
-    val leagues: List<League>
+    val leagues: Standard
 )

@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import com.example.common.Either
 import com.example.common.TAG
-import com.example.domain.Login
+import com.example.domain.model.Login
 import com.example.domain.LoginError
 import com.example.domain.LoginRepository
 
@@ -25,7 +25,11 @@ class LoginRepositoryImpl(androidApplication: Application) : LoginRepository {
             LoginResponse.Error("ERROR MESSAGE LOGIN")
         }
         return when (response) {
-            is LoginResponse.Success -> Either.Right(Login(login.body()?.status))
+            is LoginResponse.Success -> Either.Right(
+                Login(
+                    login.body()?.status
+                )
+            )
             is LoginResponse.Error -> Either.Left(LoginError("ERROR DE LOGIN"))
         }
     }

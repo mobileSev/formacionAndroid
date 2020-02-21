@@ -1,11 +1,13 @@
 package com.example.formacionandroid.ui.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.Team
+import com.example.common.TAG
 import com.example.domain.TeamError
+import com.example.domain.model.Team
 import com.example.domain.useCases.DoLogin
 import com.example.domain.useCases.GetTeam
 import kotlinx.coroutines.launch
@@ -26,10 +28,14 @@ class DetailViewModel(
 
     val state: LiveData<ViewState>
         get() {
+            Log.d(TAG, "ViewState.state.get")
+
             return _state
         }
 
     fun doLogIn() {
+        Log.d(TAG, "ViewState.doLogIn")
+
         viewModelScope.launch {
             _state.value =
                 ViewState.Loading
@@ -40,6 +46,8 @@ class DetailViewModel(
     }
 
     fun getTeams() {
+        Log.d(TAG, "ViewState.getTeams")
+
         viewModelScope.launch {
             _state.value =
                 ViewState.Loading
@@ -50,6 +58,8 @@ class DetailViewModel(
     }
 
     private fun handleError(teamError: TeamError) {
+        Log.d(TAG, "ViewState.handleError")
+
         _state.value =
             ViewState.Error(
                 teamError.error
@@ -57,6 +67,8 @@ class DetailViewModel(
     }
 
     private fun handleSuscces(list: List<Team>?) {
+        Log.d(TAG, "ViewState.handleSuscces")
+
         _state.value =
             ViewState.ShowList(
                 list

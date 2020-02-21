@@ -1,6 +1,6 @@
 package com.example.data.repository
 
-import com.example.domain.Team
+import com.example.domain.model.Team
 
 
 sealed class TeamResponse() {

@@ -1,14 +1,8 @@
 package com.example.data.repository
 
-import com.example.domain.Team
+import com.example.domain.model.Api
 
-class TeamsResponse(
-    val status: Int,
-    val message: String,
-
-    val results: Int,
-    val filters: List<String>,
-
-    val teams: List<Team>?
+data class TeamsResponse(
+    val api: Api
 
 )
